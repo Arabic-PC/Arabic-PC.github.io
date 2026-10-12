@@ -103,9 +103,10 @@ p { margin: 0; }
 
 /* شارات */
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { font-size: 13px; padding: 3px 11px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
-.chip.pc { color: var(--fg); font-weight: 700; letter-spacing: .06em; border-color: var(--gold); direction: ltr; }
-.chip.on { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
+.chip { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 64px; height: 30px; font-size: 13px; line-height: 1; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); color: var(--muted); white-space: nowrap; }
+.chip.pc { color: var(--fg); font-weight: 700; letter-spacing: .06em; direction: ltr; }
+.chip.on { color: var(--ok); }
+.chip.on::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
 
 /* الأقسام */
 section { padding-block: 56px 8px; }
