@@ -299,6 +299,18 @@ section { padding-block: 56px 8px; }
   .page { padding-inline: 16px; }
 }
 
+/* فيديو طريقة التركيب: صورة أولاً، ويُحمَّل يوتيوب عند الضغط فقط */
+.yt-wrap { margin-block: 6px 22px; }
+.yt, .yt-frame { display:block; position:relative; width:100%; max-width:760px; aspect-ratio:16/9; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#000; padding:0; cursor:pointer; }
+.yt img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s ease, filter .3s ease; }
+.yt:hover img { transform:scale(1.02); filter:brightness(.85); }
+.yt-play { position:absolute; top:50%; left:24%; transform:translate(-50%,-50%); width:76px; height:54px; border-radius:14px; background:#E62117; box-shadow:0 6px 24px rgba(0,0,0,.45); }
+.yt-play::after { content:""; position:absolute; inset:0; margin:auto; width:0; height:0; border-style:solid; border-width:12px 0 12px 20px; border-color:transparent transparent transparent #fff; transform:translateX(3px); }
+.yt:focus-visible { outline:2px solid var(--accent, #E3B341); outline-offset:3px; }
+.yt-cap { margin-block-start:10px; color:var(--muted); font-size:14px; }
+
+@media (max-width:600px){ .yt-play { width:56px; height:40px; border-radius:11px; } .yt-play::after { border-width:9px 0 9px 15px; } }
+
 </style>
 </head>
 <body>
@@ -345,6 +357,7 @@ section { padding-block: 56px 8px; }
 
       <section id="install">
         <h2>طريقة التركيب</h2>
+        <div class="yt-wrap"><button type="button" class="yt" data-id="l0V6hPcY2Us" aria-label="تشغيل فيديو طريقة التركيب"><img src="img/operator-video.jpg" alt="فيديو: طريقة تركيب تعريب The Operator" loading="lazy"><span class="yt-play" aria-hidden="true"></span></button><p class="yt-cap">شاهد طريقة التركيب بالفيديو، أو اتبع الخطوات تحت.</p></div>
         <ol class="gsteps">
           <li><div><h3>أغلق اللعبة</h3><p>البرنامج لا يعدّل اللعبة وهي مفتوحة.</p></div></li>
           <li><div><h3>نزّل البرنامج وشغّله</h3><p>اضغط على الملف بعد التنزيل، ثم اضغط «نعم» عندما يطلب ويندوز الصلاحية.</p>
@@ -447,5 +460,5 @@ section { padding-block: 56px 8px; }
 <script>(function(){var lb=document.getElementById('lb');if(!lb)return;var im=document.getElementById('lbImg'),cp=document.getElementById('lbCap');
 function close(){lb.hidden=true;im.removeAttribute('src');}
 document.querySelectorAll('.zoom').forEach(function(b){b.addEventListener('click',function(){im.src=b.dataset.src;var c=b.parentNode.querySelector('figcaption');cp.textContent=c?c.textContent:'';lb.hidden=false;});});
-lb.addEventListener('click',close);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});})();</script></body>
+lb.addEventListener('click',close);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});})();</script><script>(function(){document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';f.allowFullscreen=true;f.className='yt-frame';b.replaceWith(f);});});})();</script></body>
 </html>
