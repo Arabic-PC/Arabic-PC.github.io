@@ -360,7 +360,7 @@ section { padding-block: 56px 8px; }
 
       <section id="install">
         <h2>طريقة التركيب</h2>
-        <div class="yt-wrap"><button type="button" class="yt" data-id="l0V6hPcY2Us" aria-label="تشغيل فيديو طريقة التركيب"><img src="img/operator-video.jpg" alt="فيديو: طريقة تركيب التعريب" loading="lazy"><span class="yt-play" aria-hidden="true"></span></button><p class="yt-cap">الشرح على لعبة The Operator، وطريقة التركيب نفسها في كل الألعاب.</p></div>
+        
         <ol class="gsteps">
           <li><div><h3>أغلق اللعبة والمشغّل</h3><p>البرنامج لا يعدّل اللعبة وهي مفتوحة.</p></div></li>
           <li><div><h3>نزّل البرنامج وشغّله</h3><p>اضغط على الملف بعد التنزيل، ثم اضغط «نعم» عندما يطلب ويندوز الصلاحية.</p>
@@ -419,5 +419,5 @@ section { padding-block: 56px 8px; }
 <script>(function(){var lb=document.getElementById('lb');if(!lb)return;var im=document.getElementById('lbImg'),cp=document.getElementById('lbCap');
 function close(){lb.hidden=true;im.removeAttribute('src');}
 document.querySelectorAll('.zoom').forEach(function(b){b.addEventListener('click',function(){im.src=b.dataset.src;var c=b.parentNode.querySelector('figcaption');cp.textContent=c?c.textContent:'';lb.hidden=false;});});
-lb.addEventListener('click',close);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});})();</script><script>(function(){document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';f.allowFullscreen=true;f.className='yt-frame';b.replaceWith(f);});});})();</script></body>
+lb.addEventListener('click',close);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});})();</script></body>
 </html>
