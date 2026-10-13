@@ -421,15 +421,11 @@ section { padding-block: 56px 8px; }
   <section id="how">
     <div class="sec-head">
       <div>
-        <div class="eyebrow">ثلاث خطوات</div>
-        <h2>طريقة التركيب</h2>
+        <div class="eyebrow">شاهد الشرح</div>
+        <h2>فيديو طريقة تركيب التعريب وتثبيت البرنامج</h2>
       </div>
     </div>
-        <ol class="steps">
-      <li><h3>نزّل برنامج اللعبة</h3><p>لكل لعبة برنامج صغير خاص بها. اختر لعبتك واضغط زر التنزيل.</p></li>
-      <li><h3>شغّله واضغط «نعم»</h3><p>يطلب البرنامج صلاحية تعديل ملفات اللعبة، ثم يعثر على مكانها في جهازك تلقائياً.</p></li>
-      <li><h3>اضغط «تعريب اللعبة»</h3><p>خلال ثوانٍ يكتمل التركيب ويتحقق البرنامج من الملفات. افتح اللعبة وستجدها بالعربية.</p></li>
-    </ol>
+    <div class="yt-wrap"><button type="button" class="yt" data-id="VjXcg7ehp68" aria-label="تشغيل فيديو طريقة التركيب"><img src="img/how-video.jpg" alt="فيديو: طريقة تركيب التعريب" loading="lazy"><span class="yt-play" aria-hidden="true"></span></button><p class="yt-cap">الطريقة نفسها في كل الألعاب.</p></div>
   </section>
 
   <section>
@@ -515,5 +511,5 @@ section { padding-block: 56px 8px; }
 })();
 
 </script>
-<script>(function(){var b=document.getElementById('dlBtn'),n=document.getElementById('dlNote');if(b&&b.getAttribute('href')==='#download'){b.addEventListener('click',function(e){e.preventDefault();n.hidden=false;});}})();</script></body>
+<script>(function(){var b=document.getElementById('dlBtn'),n=document.getElementById('dlNote');if(b&&b.getAttribute('href')==='#download'){b.addEventListener('click',function(e){e.preventDefault();n.hidden=false;});}})();</script><script>(function(){document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';f.allowFullscreen=true;f.className='yt-frame';b.replaceWith(f);});});})();</script></body>
 </html>
