@@ -147,6 +147,8 @@ section { padding-block: 56px 8px; }
 /* حالة نافذة البرنامج: تبدأ "جارٍ التركيب" ثم تتحول للنجاح (يتحكم بها سكربت صغير؛ بدون سكربت تظهر حالة النجاح) */
 .bar i { transition: width 3.2s cubic-bezier(.4,.1,.3,1); }
 .app .s1 { display: none; }
+#mockName, #mockPath, #mockVer { transition: opacity .28s ease; }
+.app.swap #mockName, .app.swap #mockPath, .app.swap #mockVer { opacity: 0; }
 .app.running .s1 { display: block; }
 .app.running .s2 { display: none; }
 .app:not(.running) .dot { background: var(--ok); box-shadow: 0 0 0 5px color-mix(in srgb, var(--ok) 22%, transparent); }
@@ -384,12 +386,12 @@ section { padding-block: 56px 8px; }
           </div></li>
           <li><div><h3>اضغط «تعريب اللعبة»</h3><p>البرنامج يعثر على اللعبة بنفسه. إذا لم يجدها اضغط «بحث في الجهاز» أو «تغيير» واختر مجلد اللعبة.</p><div style="max-width:460px;margin-block-start:14px"><div class="app" id="appMock" role="img" aria-label="نافذة برنامج التعريب بعد اكتمال التركيب">
   <div class="app-top">
-    <div><div class="app-brand">ألعاب بالعربي</div><div class="app-title">تعريب <span class="ltr">The Operator</span></div></div>
+    <div><div class="app-brand">ألعاب بالعربي</div><div class="app-title">تعريب <span class="ltr" id="mockName">The Operator</span></div></div>
     <div class="app-dots" aria-hidden="true">— ✕</div>
   </div>
   <div class="app-card">
     <div class="app-label">مكان اللعبة</div>
-    <div class="app-path">C:\Program Files (x86)\Steam\steamapps\common\Project OPERATOR</div>
+    <div class="app-path" id="mockPath">C:\Program Files (x86)\Steam\steamapps\common\Project OPERATOR</div>
   </div>
   <div class="app-card">
     <div class="app-status"><span class="dot"></span><span class="s1">جارٍ تعريب اللعبة…</span><span class="s2">تم التعريب بنجاح</span></div>
@@ -398,7 +400,7 @@ section { padding-block: 56px 8px; }
     <div class="bar-meta"><span id="mockStep">اكتمل التركيب وتم التحقق من الملفات</span><b id="mockPct">100٪</b></div>
   </div>
   <div class="app-btns"><span class="go off">اللعبة معرّبة ✓</span><span>فحص</span><span>إرجاع الأصل</span></div>
-  <div class="app-foot"><span>تعريب مُراجَع ومُجرَّب داخل اللعبة</span><span>الإصدار 1.0</span></div>
+  <div class="app-foot"><span>تعريب مُراجَع ومُجرَّب داخل اللعبة</span><span id="mockVer">الإصدار 1.0</span></div>
 </div>
 </div></div></li>
           <li><div><h3>افتح اللعبة</h3><p>ستجدها بالعربية مباشرة، بدون تغيير أي إعداد.</p></div></li>
@@ -448,28 +450,50 @@ section { padding-block: 56px 8px; }
 </div>
 
 <script>
-// تشغيل عرض التركيب في نافذة البرنامج المصغّرة مرة واحدة عند فتح الصفحة
+// عرض التركيب في نافذة البرنامج المصغّرة. في الرئيسية يتنقّل بين كل الألعاب المعرّبة
 (function () {
   var app = document.getElementById('appMock');
   if (!app) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var games = [];
+  try { games = JSON.parse(app.getAttribute('data-games') || '[]'); } catch (e) {}
   var bar = document.getElementById('mockBar'), step = document.getElementById('mockStep'), pct = document.getElementById('mockPct');
+  var nm = document.getElementById('mockName'), path = document.getElementById('mockPath'), ver = document.getElementById('mockVer');
   var steps = [[0, 'جارٍ فحص ملفات اللعبة…'], [12, 'جارٍ حفظ نسخة احتياطية…'], [30, 'جارٍ تطبيق التعريب…'], [80, 'جارٍ التحقق من سلامة الملفات…']];
-  app.classList.add('running');
-  bar.style.transition = 'none'; bar.style.width = '0%';
-  var start = null, dur = 3400;
-  function frame(t) {
-    if (start === null) start = t;
-    var p = Math.min(1, (t - start) / dur);
-    var e = 1 - Math.pow(1 - p, 2);
-    var v = Math.round(e * 100);
-    bar.style.width = v + '%';
-    pct.textContent = v + '٪';
-    for (var i = steps.length - 1; i >= 0; i--) if (v >= steps[i][0]) { step.textContent = steps[i][1]; break; }
-    if (p < 1) requestAnimationFrame(frame);
-    else { app.classList.remove('running'); step.textContent = 'اكتمل التركيب وتم التحقق من الملفات'; pct.textContent = '100٪'; }
+  function show(g) {
+    nm.textContent = g.name; path.textContent = g.path; ver.textContent = 'الإصدار ' + g.ver;
+    app.setAttribute('aria-label', 'نافذة برنامج تعريب ' + g.name);
   }
-  setTimeout(function () { requestAnimationFrame(frame); }, 700);
+  if (games.length) show(games[0]);
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function run(done) {
+    app.classList.add('running');
+    bar.style.transition = 'none'; bar.style.width = '0%';
+    var start = null, dur = 3400;
+    function frame(t) {
+      if (start === null) start = t;
+      var p = Math.min(1, (t - start) / dur);
+      var v = Math.round((1 - Math.pow(1 - p, 2)) * 100);
+      bar.style.width = v + '%';
+      pct.textContent = v + '٪';
+      for (var i = steps.length - 1; i >= 0; i--) if (v >= steps[i][0]) { step.textContent = steps[i][1]; break; }
+      if (p < 1) requestAnimationFrame(frame);
+      else { app.classList.remove('running'); step.textContent = 'اكتمل التركيب وتم التحقق من الملفات'; pct.textContent = '100٪'; if (done) done(); }
+    }
+    requestAnimationFrame(frame);
+  }
+  var i = 0;
+  function next() {
+    if (games.length < 2) return;
+    setTimeout(function () {
+      app.classList.add('swap');
+      setTimeout(function () {
+        i = (i + 1) % games.length; show(games[i]);
+        app.classList.remove('swap');
+        run(next);
+      }, 280);
+    }, 2600);
+  }
+  setTimeout(function () { run(next); }, 700);
 })();
 
 </script>

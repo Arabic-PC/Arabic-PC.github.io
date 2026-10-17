@@ -147,6 +147,8 @@ section { padding-block: 56px 8px; }
 /* حالة نافذة البرنامج: تبدأ "جارٍ التركيب" ثم تتحول للنجاح (يتحكم بها سكربت صغير؛ بدون سكربت تظهر حالة النجاح) */
 .bar i { transition: width 3.2s cubic-bezier(.4,.1,.3,1); }
 .app .s1 { display: none; }
+#mockName, #mockPath, #mockVer { transition: opacity .28s ease; }
+.app.swap #mockName, .app.swap #mockPath, .app.swap #mockVer { opacity: 0; }
 .app.running .s1 { display: block; }
 .app.running .s2 { display: none; }
 .app:not(.running) .dot { background: var(--ok); box-shadow: 0 0 0 5px color-mix(in srgb, var(--ok) 22%, transparent); }
