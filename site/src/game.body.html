@@ -1,0 +1,99 @@
+<div class="page" dir="rtl" lang="ar">
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark">ع</span><b>{{BRAND}}</b></a>
+  <nav class="nav" aria-label="القائمة">
+    <a href="index.html#games">الألعاب</a>
+    <a href="#install">طريقة التركيب</a>
+    <a href="#restore">إرجاع الأصل</a>
+  </nav>
+  <div class="soc"><a class="soc-btn" href="{{X_URL}}" target="_blank" rel="noopener" aria-label="حسابنا في X"><b class="xmark">𝕏</b></a><a class="soc-btn" href="{{DISCORD_URL}}" target="_blank" rel="noopener" aria-label="سيرفر ديسكورد"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="9.5" r="1.2" fill="currentColor"/><circle cx="15" cy="9.5" r="1.2" fill="currentColor"/></svg></a><a class="soc-btn" href="{{YT_URL}}" target="_blank" rel="noopener" aria-label="قناة يوتيوب"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg></a></div>
+</header>
+
+<a class="crumb" href="index.html#games">→ كل الألعاب</a>
+
+<main>
+  <div class="g-head">
+    <div class="g-main">
+      <h1 class="g-title">{{NAME}}</h1>
+      <div class="g-sub">{{SUBTITLE}}</div>
+      <div class="chips"><span class="chip on">متاح</span><span class="chip pc">PC</span><span class="chip">{{TEXTS}}</span><span class="chip">الإصدار {{VERSION}}</span></div>
+
+      {{COVER}}
+      {{ALERT}}
+
+      <section>
+        <h2>عن اللعبة</h2>
+        <p>{{ABOUT}}</p>
+      </section>
+
+      <section>
+        <h2>ما الذي تمّ تعريبه</h2>
+        <ul>{{TRANSLATED}}</ul>
+        <p class="names-note">{{NAMES_NOTE}}</p>
+        <div class="sample">
+          <div class="en"><small>النص الأصلي</small>{{SAMPLE_EN}}</div>
+          <div class="ar"><small>في التعريب</small>{{SAMPLE_AR}}</div>
+        </div>
+      </section>
+
+      {{SHOT}}
+
+      <section id="install">
+        <h2>طريقة التركيب</h2>
+        {{VIDEO}}
+        <ol class="gsteps">
+          <li><div><h3>أغلق اللعبة{{CLOSE_LAUNCHER}}</h3><p>البرنامج لا يعدّل اللعبة وهي مفتوحة.</p></div></li>
+          <li><div><h3>نزّل البرنامج وشغّله</h3><p>اضغط على الملف بعد التنزيل، ثم اضغط «نعم» عندما يطلب ويندوز الصلاحية.</p>
+            <div class="warn" aria-label="صورة توضيحية لتحذير ويندوز">
+              <div><div class="ss"><h4>Windows protected your PC</h4><p>Microsoft Defender SmartScreen prevented an unrecognized app from starting.</p><span class="more">More info</span></div><p class="ss-cap">إذا ظهر هذا التحذير، اضغط «More info».</p></div>
+              <div><div class="ss"><h4>Windows protected your PC</h4><p>App: {{EXE}}</p><div class="row"><span class="hl">Run anyway</span><span>Don't run</span></div></div><p class="ss-cap">ثم اضغط «Run anyway».</p></div>
+            </div>
+          </div></li>
+          <li><div><h3>اضغط «تعريب اللعبة»</h3><p>البرنامج يعثر على اللعبة بنفسه. إذا لم يجدها اضغط «بحث في الجهاز» أو «تغيير» واختر مجلد اللعبة.</p>{{MOCK_SLOT}}</div></li>
+          <li><div><h3>افتح اللعبة</h3><p>{{OPEN_NOTE}}</p></div></li>
+        </ol>
+      </section>
+
+      <section id="restore">
+        <h2>إرجاع اللعبة الأصلية</h2>
+        <p>{{RESTORE}}</p>
+      </section>
+
+      <section>
+        <h2>ملاحظات</h2>
+        <ul>{{NOTES}}</ul>
+      </section>
+
+      {{CREDIT}}
+      <section>
+        <h2>تفاصيل تقنية</h2>
+        <div class="tech"><table>{{TECH}}</table></div>
+      </section>
+    </div>
+
+    <aside class="dl" aria-label="تنزيل التعريب">
+      <a class="btn gold" href="#download" id="dlBtn">تنزيل التعريب</a>
+      <dl>
+        <dt>اسم الملف</dt><dd class="mono ltr">{{EXE}}</dd>
+        <dt>الحجم</dt><dd>{{SIZE}}</dd>
+        <dt>النظام</dt><dd>ويندوز 10 و 11</dd>
+        <dt>آخر تحديث</dt><dd>أكتوبر 2026</dd>
+      </dl>
+      <p class="preview-note" id="dlNote" hidden>رابط التنزيل يتفعّل عند نشر الموقع.</p>
+      <p class="dl-note">البرنامج يتأكد من نسخة لعبتك قبل التركيب. إذا لم تطابق التعريب يخبرك بذلك ولا يعدّل أي ملف.</p>
+      <p class="dl-note">وجدت خطأ في الترجمة؟ <a href="{{DISCORD_URL}}" target="_blank" rel="noopener">أخبرنا في ديسكورد</a>.</p>
+      <p class="dl-note">تعريب مُراجَع ومُجرَّب داخل اللعبة.</p>
+    </aside>
+  </div>
+</main>
+
+<footer class="foot">
+  <span><strong>{{BRAND}}</strong> · تعريب مُراجَع ومُجرَّب داخل اللعبة</span>
+  <span class="foot-soc"><a href="{{X_URL}}" target="_blank" rel="noopener">X</a> · <a href="{{DISCORD_URL}}" target="_blank" rel="noopener">ديسكورد</a> · <a href="{{YT_URL}}" target="_blank" rel="noopener">يوتيوب</a></span>
+  <span>موقع مستقل لا يتبع أي شركة ألعاب. أسماء الألعاب ملك أصحابها.</span>
+</footer>
+
+</div>
+</div>

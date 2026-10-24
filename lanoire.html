@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-XPZ5wKqf21gq0D0AeraoFpnEj7kuPk5C9pK2HXMF9HM=' 'sha256-v1uO1e8zvMH5rvgt+mpIUeD6uVlTH4/er59xinUxWh0=' https://gc.zgo.at/count.v5.js; style-src 'sha256-1uVdRd1QjCBtEWIchNQnRobm/2S7IjeNuc3qFS26k3Q=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="تعريب لعبة L.A. Noire (لوس أنجلوس نوار) كامل بالعربية الفصحى: الحوارات والقوائم ودفتر المحقق. يُركَّب ببرنامج صغير بضغطة واحدة ويُزال بضغطة واحدة.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -327,6 +328,8 @@ section { padding-block: 56px 8px; }
 .alert p { margin: 0; }
 .credit { padding: 14px 16px; border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); }
 .game.upcoming .art.shot img { object-position: center top; }
+.names-note { margin-block-start: 14px; }
+.mock-slot { max-width: 460px; margin-block-start: 14px; }
 
 </style>
 </head>
@@ -364,7 +367,7 @@ section { padding-block: 56px 8px; }
       <section>
         <h2>ما الذي تمّ تعريبه</h2>
         <ul><li>القوائم والإعدادات.</li><li>الحوارات والترجمة أسفل الشاشة.</li><li>دفتر المحقق والقضايا والأدلة.</li><li>الوثائق والجرائد.</li><li>خطوط عربية لكل خطوط اللعبة، وعناوين القوائم مرسومة بالعربية.</li></ul>
-        <p style="margin-block-start:14px">أسماء الشخصيات مكتوبة بالحروف العربية.</p>
+        <p class="names-note">أسماء الشخصيات مكتوبة بالحروف العربية.</p>
         <div class="sample">
           <div class="en"><small>النص الأصلي</small>Detective Bekowsky&#x27;s handwriting is just illegible.</div>
           <div class="ar"><small>في التعريب</small>خط المحقق بيكوسكي لا يمكن قراءته أبدًا.</div>
@@ -435,6 +438,6 @@ section { padding-block: 56px 8px; }
 <script>(function(){var lb=document.getElementById('lb');if(!lb)return;var im=document.getElementById('lbImg'),cp=document.getElementById('lbCap');
 function close(){lb.hidden=true;im.removeAttribute('src');}
 document.querySelectorAll('.zoom').forEach(function(b){b.addEventListener('click',function(){im.src=b.dataset.src;var c=b.parentNode.querySelector('figcaption');cp.textContent=c?c.textContent:'';lb.hidden=false;});});
-lb.addEventListener('click',close);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});})();</script><script>(function(){document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';f.allowFullscreen=true;f.className='yt-frame';b.replaceWith(f);});});})();</script><script data-goatcounter="https://arabic-pc.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+lb.addEventListener('click',close);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});})();</script><script>(function(){document.querySelectorAll('.yt').forEach(function(b){b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';f.allowFullscreen=true;f.className='yt-frame';b.replaceWith(f);});});})();</script><script data-goatcounter="https://arabic-pc.goatcounter.com/count" async src="https://gc.zgo.at/count.v5.js" integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ" crossorigin="anonymous"></script>
 </body>
 </html>
