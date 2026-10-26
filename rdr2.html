@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-XPZ5wKqf21gq0D0AeraoFpnEj7kuPk5C9pK2HXMF9HM=' 'sha256-v1uO1e8zvMH5rvgt+mpIUeD6uVlTH4/er59xinUxWh0=' https://gc.zgo.at/count.v5.js; style-src 'sha256-v7RBQCNSXX8jeXgJ3IH+8qW7on81gAdlazpDvwRBJVw=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-XPZ5wKqf21gq0D0AeraoFpnEj7kuPk5C9pK2HXMF9HM=' 'sha256-v1uO1e8zvMH5rvgt+mpIUeD6uVlTH4/er59xinUxWh0=' https://gc.zgo.at/count.v5.js; style-src 'sha256-z/qHB4uxzsA+k9zRdG/Ya8tDS5vW+O9iNBku6QEFd1E=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="تعريب لعبة Red Dead Redemption 2 (ريد ديد ريدمبشن 2، ريد ديد 2، RDR2) بالعربية: القصة والقوائم والحوارات. يُركَّب ببرنامج صغير بضغطة واحدة ويُزال بضغطة واحدة.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -332,6 +332,8 @@ section { padding-block: 56px 8px; }
 .names-note { margin-block-start: 14px; }
 .mock-slot { max-width: 460px; margin-block-start: 14px; }
 
+.btn.off { opacity: .45; filter: grayscale(1); cursor: not-allowed; pointer-events: none; }
+.dl-paused { margin: 0; text-align: center; font-weight: 600; color: #E07A62; }
 </style>
 </head>
 <body>
@@ -412,7 +414,8 @@ section { padding-block: 56px 8px; }
     </div>
 
     <aside class="dl" aria-label="تنزيل التعريب">
-      <a class="btn gold" href="https://arabic-pc.github.io/downloads/Arabic-RDR2.exe" download data-goatcounter-click="download-rdr2" data-goatcounter-title="تنزيل Red Dead Redemption 2" id="dlBtn">تنزيل التعريب</a>
+      <a class="btn gold off" id="dlBtn" aria-disabled="true">تنزيل التعريب</a>
+      <p class="dl-paused" role="status">التنزيل متوقف مؤقتاً، ويرجع خلال أيام قليلة.</p>
       <dl>
         <dt>اسم الملف</dt><dd class="mono ltr">Arabic-RDR2.exe</dd>
         <dt>الحجم</dt><dd>12 ميغابايت</dd>
