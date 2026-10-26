@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-a7NSex6kz7W4jpxbaxUUzmM2++XtHj7ug4aKUk41pP0=' https://gc.zgo.at/count.v5.js https://challenges.cloudflare.com; style-src 'sha256-xJSLHyXVNwXziqnnRmNPiIkLphTbNPkQMCfurUCrXcg=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com https://report.arabic-pc.workers.dev; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-v1R0mptQOHQnbOOKuxmYAi8iUyKFoatFM2B0hYWfSp4=' https://gc.zgo.at/count.v5.js https://challenges.cloudflare.com; style-src 'sha256-xJSLHyXVNwXziqnnRmNPiIkLphTbNPkQMCfurUCrXcg=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com https://report.arabic-pc.workers.dev; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="أبلغنا عن مشكلة في أحد تعريبات ألعاب بالعربي.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -494,9 +494,9 @@ g.addEventListener('change',setVer);
 function len(){return Array.from(t.value.trim()).length;}
 var KEY='rep-sent';function sent(){try{var a=JSON.parse(localStorage.getItem(KEY)||'[]'),h=Date.now()-36e5;return a.filter(function(x){return x>h;});}catch(e){return [];}}
 function say(x){m.textContent=x;}
-window.repTsErr=function(c){say('تعذّر التحقق من Cloudflare (رمز '+c+'). حدّث الصفحة وحاول مرة أخرى.');};
+window.repTsErr=function(c){say('تعذّر التحقق من Cloudflare (رمز '+c+'). جرّب نافذة خفية أو أوقف مانع الإعلانات ثم حدّث الصفحة، أو اكتب لنا في ديسكورد.');};
 function fail(x){say(x);s.disabled=false;s.textContent='إرسال البلاغ';try{if(window.turnstile)turnstile.reset();}catch(e){}}
-var ERR={rate:'أرسلت بلاغات كثيرة في وقت قصير. انتظر دقيقة ثم حاول مرة أخرى.',captcha:'لم يكتمل التحقق من أنك لست برنامجاً آلياً. أعد المحاولة.',desc:'وصف المشكلة يجب أن يكون بين 20 و1500 حرف.',type:'اختر نوع المشكلة.'};
+var ERR={rate:'أرسلت بلاغات كثيرة في وقت قصير. انتظر دقيقة ثم حاول مرة أخرى.',captcha:'لم يكتمل التحقق من أنك لست برنامجاً آلياً. حدّث الصفحة وأعد المحاولة، أو جرّب نافذة خفية.',desc:'وصف المشكلة يجب أن يكون بين 20 و1500 حرف.',type:'اختر نوع المشكلة.'};
 f.addEventListener('submit',function(e){e.preventDefault();say('');
 if(!E.type.value){say(ERR.type);E.type.focus();return;}
 var n=len();if(n<20){say('اكتب وصفاً أوضح للمشكلة (20 حرفاً على الأقل).');t.focus();return;}
