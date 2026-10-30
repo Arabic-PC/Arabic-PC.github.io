@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-XPZ5wKqf21gq0D0AeraoFpnEj7kuPk5C9pK2HXMF9HM=' 'sha256-v1uO1e8zvMH5rvgt+mpIUeD6uVlTH4/er59xinUxWh0=' https://gc.zgo.at/count.v5.js; style-src 'sha256-xJSLHyXVNwXziqnnRmNPiIkLphTbNPkQMCfurUCrXcg=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-XPZ5wKqf21gq0D0AeraoFpnEj7kuPk5C9pK2HXMF9HM=' 'sha256-v1uO1e8zvMH5rvgt+mpIUeD6uVlTH4/er59xinUxWh0=' https://gc.zgo.at/count.v5.js; style-src 'sha256-wbxaonHQPuV4sXBc9vWRtedkLjcPv8II8Yz/6acojsE=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="تعريب لعبة L.A. Noire (لوس أنجلوس نوار، LA Noire) كامل بالعربية الفصحى: الحوارات والقوائم ودفتر المحقق. يُركَّب ببرنامج صغير بضغطة واحدة ويُزال بضغطة واحدة.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -376,6 +376,11 @@ section { padding-block: 56px 8px; }
   .rep-card { padding: 26px 18px 22px; }
 }
 
+.btn.off { opacity: .45; filter: grayscale(1); cursor: not-allowed; pointer-events: none; }
+.dl-paused { margin: 0; text-align: center; font-weight: 600; color: #E07A62; }
+.dl-paused-ok { text-align: center; }
+.chip.paused { color: #F2994A; }
+.chip.paused::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #F2994A; }
 </style>
 </head>
 <body>
@@ -400,7 +405,7 @@ section { padding-block: 56px 8px; }
       <h1 class="g-title">L.A. Noire</h1>
       <div class="g-sub">تعريب كامل بالعربية الفصحى</div>
       <p class="g-aka">تُعرف أيضاً باسم: <bdi>LA Noire</bdi>، <bdi>إل إيه نوار</bdi></p>
-      <div class="chips"><span class="chip on">متاح</span><span class="chip pc">PC</span><span class="chip">أكثر من 22,000 نص</span><span class="chip">الإصدار 1.1</span></div>
+      <div class="chips"><span class="chip paused">جارٍ التحديث</span><span class="chip pc">PC</span><span class="chip">أكثر من 22,000 نص</span><span class="chip">الإصدار 1.1</span></div>
 
       <figure class="g-shot g-cover"><img src="img/lanoire-cover.jpg" alt="L.A. Noire"></figure>
       
@@ -456,7 +461,9 @@ section { padding-block: 56px 8px; }
     </div>
 
     <aside class="dl" aria-label="تنزيل التعريب">
-      <a class="btn gold" href="https://arabic-pc.github.io/downloads/Arabic-LANoire.exe" download data-goatcounter-click="download-lanoire" data-goatcounter-title="تنزيل L.A. Noire" id="dlBtn">تنزيل التعريب</a>
+      <a class="btn gold off" id="dlBtn" aria-disabled="true">تنزيل التعريب</a>
+      <p class="dl-paused" role="status">التعريب متوقف مؤقتاً للتحديث، ويعود خلال أيام قليلة.</p>
+      <p class="dl-note dl-paused-ok">إذا كان التعريب مركّب عندك، فهو يشتغل عادي وما تحتاج تسوي أي شي.</p>
       <dl>
         <dt>اسم الملف</dt><dd class="mono ltr">Arabic-LANoire.exe</dd>
         <dt>الحجم</dt><dd>9.8 ميغابايت</dd>
