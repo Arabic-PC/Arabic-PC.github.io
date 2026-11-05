@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-XKA+Ks+a/oH4eBEpq15amMRDtnAtduEO/4KdRxrPADY=' 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-HL5o4WRxJy2LJ+yI6lyWKtsYBRQcVguU/ZzOsRV5YWg=' https://gc.zgo.at/count.v5.js https://challenges.cloudflare.com; style-src 'sha256-Z8zbPZ3U1t4Iu7V06U7C2Q2TU/Clv5D/y8a4ajdJ6cw=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com https://report.arabic-pc.workers.dev; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-XKA+Ks+a/oH4eBEpq15amMRDtnAtduEO/4KdRxrPADY=' 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-HL5o4WRxJy2LJ+yI6lyWKtsYBRQcVguU/ZzOsRV5YWg=' https://gc.zgo.at/count.v5.js https://challenges.cloudflare.com; style-src 'sha256-Sgo/R9gUZl+SSyFRWiMtimIcB44LZv53RWlaScCgbYg=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com https://report.arabic-pc.workers.dev; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="أبلغنا عن مشكلة في أحد تعريبات ألعاب بالعربي.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -75,8 +75,7 @@ p { margin: 0; }
 /* الرأس */
 .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.mark { width: 40px; height: 40px; border-radius: 11px; border: 2px solid var(--gold); display: grid; place-items: center;
-  font-family: var(--f-display); font-weight: 700; color: var(--gold); font-size: 22px; line-height: 1; background: var(--surface); }
+.mark { display: block; flex: none; width: 40px; height: 40px; }   /* شعار الموقع الأصلي img/icon.png */
 .brand b { font-family: var(--f-display); font-size: 20px; font-weight: 600; }
 .nav { display: flex; gap: 22px; font-size: 15px; color: var(--muted); }
 .nav a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; transition: color var(--t-fast); }
@@ -453,7 +452,7 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
   .top { column-gap: 8px; }
   .brand { gap: 6px; }
   .brand b { font-size: 16px; }
-  .mark { width: 36px; height: 36px; font-size: 20px; }
+  .mark { width: 36px; height: 36px; }
   .soc { gap: 2px; }
 }
 @media (max-width: 900px) {
@@ -561,7 +560,7 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
 <div class="wrap">
 
 <header class="top">
-  <a class="brand" href="index.html"><span class="mark">ع</span><b>ألعاب بالعربي</b></a>
+  <a class="brand" href="index.html"><img class="mark" src="img/icon.png" alt="" width="40" height="40"><b>ألعاب بالعربي</b></a>
   <nav class="nav" aria-label="القائمة">
     <a href="index.html#games">الألعاب</a>
     <a href="index.html#how">طريقة التركيب</a>

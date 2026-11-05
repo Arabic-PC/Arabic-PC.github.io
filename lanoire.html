@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-ewUK3IPYGU3gF46hvFdsm5bOvynYOuCXVG4b3wqlys8=' 'sha256-vcinfW8w1KXhrZvj4CvVC5i6HdQuYbBCxFpEJyH1vP8=' 'sha256-0NgrnOgkzZ77znPo2b4Meokp/LdTKjtW62F+k99FBgs=' 'sha256-D0SnryFHbFcE3lDCmxs45RldMhnp5iyebAxpOahPNMg=' https://gc.zgo.at/count.v5.js; style-src 'sha256-maSr//BUpDAqEGEXEp2WC1jYvAzCQqmq82qslQaPMLE=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src 'self' https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-ewUK3IPYGU3gF46hvFdsm5bOvynYOuCXVG4b3wqlys8=' 'sha256-vcinfW8w1KXhrZvj4CvVC5i6HdQuYbBCxFpEJyH1vP8=' 'sha256-0NgrnOgkzZ77znPo2b4Meokp/LdTKjtW62F+k99FBgs=' 'sha256-D0SnryFHbFcE3lDCmxs45RldMhnp5iyebAxpOahPNMg=' https://gc.zgo.at/count.v5.js; style-src 'sha256-lVobi4qs9Uh5v0Wb3BaVYZ3cYDsjp/N+MUPTLzhp+Kw=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src 'self' https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="تعريب لعبة L.A. Noire (لوس أنجلوس نوار، LA Noire) كامل بالعربية الفصحى: الحوارات والقوائم ودفتر المحقق. يُركَّب ببرنامج صغير بضغطة واحدة ويُزال بضغطة واحدة.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -75,8 +75,7 @@ p { margin: 0; }
 /* الرأس */
 .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.mark { width: 40px; height: 40px; border-radius: 11px; border: 2px solid var(--gold); display: grid; place-items: center;
-  font-family: var(--f-display); font-weight: 700; color: var(--gold); font-size: 22px; line-height: 1; background: var(--surface); }
+.mark { display: block; flex: none; width: 40px; height: 40px; }   /* شعار الموقع الأصلي img/icon.png */
 .brand b { font-family: var(--f-display); font-size: 20px; font-weight: 600; }
 .nav { display: flex; gap: 22px; font-size: 15px; color: var(--muted); }
 .nav a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; transition: color var(--t-fast); }
@@ -453,7 +452,7 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
   .top { column-gap: 8px; }
   .brand { gap: 6px; }
   .brand b { font-size: 16px; }
-  .mark { width: 36px; height: 36px; font-size: 20px; }
+  .mark { width: 36px; height: 36px; }
   .soc { gap: 2px; }
 }
 @media (max-width: 900px) {
@@ -561,7 +560,7 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
 <div class="wrap">
 
 <header class="top">
-  <a class="brand" href="index.html"><span class="mark">ع</span><b>ألعاب بالعربي</b></a>
+  <a class="brand" href="index.html"><img class="mark" src="img/icon.png" alt="" width="40" height="40"><b>ألعاب بالعربي</b></a>
   <nav class="nav" aria-label="القائمة">
     <a href="index.html#games">الألعاب</a>
     <a href="#install">طريقة التركيب</a>
