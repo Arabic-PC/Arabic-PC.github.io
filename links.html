@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' https://gc.zgo.at/count.v5.js; style-src 'sha256-WLe3ghKz0P5EtHi6GjGnhZPTE3i03hSu0/sbe4yoJ94=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' https://gc.zgo.at/count.v5.js; style-src 'sha256-el+COLhDkDPi+WnS0h8U89cLtol07ZrFqa14SupzHtg=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="حسابات ألعاب بالعربي: الموقع وديسكورد ويوتيوب وإكس.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -517,6 +517,7 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
 .btn-report { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; margin-block-start: 4px; border-radius: 12px; border: 1px solid var(--line); color: var(--fg); font-size: 16px; font-weight: 600; text-decoration: none; transition: border-color .15s, background .15s; }
 .btn-report svg { color: var(--gold); flex: none; }
 .btn-report:hover { border-color: var(--gold); background: var(--scan); }
+.btn-report + .btn-report { margin-block-start: -4px; }   /* زرّين تحت بعض: المسافة بينهم 10 بكسل */
 
 /* صفحة الإبلاغ عن مشكلة */
 .rep { max-width: 720px; margin-inline: auto; padding-block: 18px 0; }

@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-ewUK3IPYGU3gF46hvFdsm5bOvynYOuCXVG4b3wqlys8=' 'sha256-vcinfW8w1KXhrZvj4CvVC5i6HdQuYbBCxFpEJyH1vP8=' 'sha256-0NgrnOgkzZ77znPo2b4Meokp/LdTKjtW62F+k99FBgs=' 'sha256-D0SnryFHbFcE3lDCmxs45RldMhnp5iyebAxpOahPNMg=' https://gc.zgo.at/count.v5.js; style-src 'sha256-ydTNygWlM/7+TSbZy92/MhedMdfafhxdRBYZt6tlPKo=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src 'self' https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-ewUK3IPYGU3gF46hvFdsm5bOvynYOuCXVG4b3wqlys8=' 'sha256-vcinfW8w1KXhrZvj4CvVC5i6HdQuYbBCxFpEJyH1vP8=' 'sha256-0NgrnOgkzZ77znPo2b4Meokp/LdTKjtW62F+k99FBgs=' 'sha256-D0SnryFHbFcE3lDCmxs45RldMhnp5iyebAxpOahPNMg=' https://gc.zgo.at/count.v5.js; style-src 'sha256-MJA5nMBxwbsC2JuoxduCKJxo3nF4No0K5aXoj8YO1N4=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src 'self' https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="تعريب لعبة Watch Dogs (واتش دوغز، واتش دوجز) كامل بالعربية الفصحى: القوائم والمهمات والحوارات. يُركَّب ببرنامج صغير بضغطة واحدة ويُزال بضغطة واحدة.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -518,6 +518,7 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
 .btn-report { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; margin-block-start: 4px; border-radius: 12px; border: 1px solid var(--line); color: var(--fg); font-size: 16px; font-weight: 600; text-decoration: none; transition: border-color .15s, background .15s; }
 .btn-report svg { color: var(--gold); flex: none; }
 .btn-report:hover { border-color: var(--gold); background: var(--scan); }
+.btn-report + .btn-report { margin-block-start: -4px; }   /* زرّين تحت بعض: المسافة بينهم 10 بكسل */
 
 /* صفحة الإبلاغ عن مشكلة */
 .rep { max-width: 720px; margin-inline: auto; padding-block: 18px 0; }
@@ -667,6 +668,7 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
       <p class="preview-note" id="dlNote" hidden>رابط التنزيل يتفعّل عند نشر الموقع.</p>
       <p class="dl-note">البرنامج يتأكد من نسخة لعبتك قبل التركيب. إذا لم تطابق التعريب يخبرك بذلك ولا يعدّل أي ملف.</p>
       <p class="dl-note">تعريب مُراجَع ومُجرَّب داخل اللعبة.</p>
+      <a class="btn-report" href="suggest.html"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>اقترح لعبة</a>
       <a class="btn-report" href="report.html?game=watchdogs&amp;v=1.2"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5.5 21V4.5m0 0h10.2l-1.6 3.6 1.6 3.6H5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>الإبلاغ عن مشكلة</a>
     </aside>
   </div>
