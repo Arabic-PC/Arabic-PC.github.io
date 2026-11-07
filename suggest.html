@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-CQ6T4JSjLTmFXHkT//QUAFeNlNe1zdghaGTjPW/aMSE=' https://gc.zgo.at/count.v5.js https://challenges.cloudflare.com; style-src 'sha256-YzkMORbgvdW2aLoi8olJ0RDIulKDfJ7WXn79VJXbbPo=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com https://report.arabic-pc.workers.dev; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-wJWaR2HB1jYoHZsDYSb5g6//sTl+vDvdjL/9a6MHuA0=' https://gc.zgo.at/count.v5.js https://challenges.cloudflare.com; style-src 'sha256-eAF73CQTQj54hDy/ImwBXF6Ps8INXjtyG280XWmuyA4=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com https://report.arabic-pc.workers.dev; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="اقترح لعبة كمبيوتر تريد تعريبها بالعربية.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -563,6 +563,20 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
 
 .sug-have { margin: -6px 0 14px; color: var(--ok); font-size: 14.5px; font-weight: 600; }
 .sug-have a { color: inherit; }
+.rep-send:disabled { opacity: .45; cursor: not-allowed; }
+.fld-err { color: var(--danger); font-size: 14.5px; font-weight: 600; }
+.fld-err:empty { display: none; }
+.fld input[aria-invalid="true"] { border-color: var(--danger); }
+.fld input[aria-invalid="true"]:focus { outline-color: var(--danger); }
+fieldset.fld { border: 0; padding: 0; margin: 0; }
+.sug-via legend { font-weight: 700; font-size: 17px; padding: 0; margin-block-end: 10px; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.seg label { position: relative; display: block; }
+.seg input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.seg span { display: block; text-align: center; padding: 13px 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); font-weight: 600; transition: border-color .15s, background .15s; }
+.seg input:checked + span { border-color: var(--gold); color: var(--gold); }
+.seg input:focus-visible + span { outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (hover: hover) { .seg input:not(:checked):hover + span { border-color: var(--gold); } }
 
 </style>
 </head>
@@ -583,19 +597,30 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
 <a class="crumb" href="links.html">→ الروابط</a>
 
 <main class="rep">
-  <form class="rep-card rep-form" id="sug" novalidate data-have="[{&quot;n&quot;: [&quot;The Operator&quot;, &quot;ذا أوبريتر&quot;, &quot;أوبريتر&quot;], &quot;u&quot;: &quot;operator.html&quot;}, {&quot;n&quot;: [&quot;Watch Dogs&quot;, &quot;واتش دوغز&quot;, &quot;واتش دوجز&quot;], &quot;u&quot;: &quot;watchdogs.html&quot;}, {&quot;n&quot;: [&quot;L.A. Noire&quot;, &quot;لوس أنجلوس نوار&quot;, &quot;LA Noire&quot;, &quot;إل إيه نوار&quot;], &quot;u&quot;: &quot;lanoire.html&quot;}, {&quot;n&quot;: [&quot;Red Dead Redemption 2&quot;, &quot;ريد ديد ريدمبشن 2&quot;, &quot;ريد ديد 2&quot;, &quot;RDR2&quot;, &quot;ريد ديد ريدمبشن 2&quot;], &quot;u&quot;: &quot;rdr2.html&quot;}, {&quot;n&quot;: [&quot;Ready or Not&quot;, &quot;ريدي أور نوت&quot;], &quot;u&quot;: &quot;readyornot.html&quot;}, {&quot;n&quot;: [&quot;Anno 1800&quot;, &quot;آنو 1800&quot;, &quot;أنو 1800&quot;], &quot;u&quot;: &quot;anno1800.html&quot;}, {&quot;n&quot;: [&quot;Manor Lords&quot;, &quot;مانور لوردز&quot;], &quot;u&quot;: &quot;manorlords.html&quot;}, {&quot;n&quot;: [&quot;Mount &amp; Blade II: Bannerlord&quot;, &quot;ماونت آند بليد 2: بانرلورد&quot;, &quot;بانرلورد&quot;, &quot;ماونت آند بليد 2&quot;, &quot;Mount and Blade 2&quot;], &quot;u&quot;: &quot;bannerlord.html&quot;}]">
+  <form class="rep-card rep-form" id="sug" novalidate data-have="[{&quot;n&quot;: [&quot;The Operator&quot;, &quot;ذا أوبريتر&quot;, &quot;أوبريتر&quot;, &quot;Operator&quot;, &quot;Project Operator&quot;], &quot;u&quot;: &quot;operator.html&quot;, &quot;t&quot;: &quot;The Operator&quot;}, {&quot;n&quot;: [&quot;Watch Dogs&quot;, &quot;واتش دوغز&quot;, &quot;واتش دوجز&quot;, &quot;واتش دوقز&quot;, &quot;Watch Dogs 1&quot;], &quot;u&quot;: &quot;watchdogs.html&quot;, &quot;t&quot;: &quot;Watch Dogs&quot;}, {&quot;n&quot;: [&quot;L.A. Noire&quot;, &quot;لوس أنجلوس نوار&quot;, &quot;LA Noire&quot;, &quot;إل إيه نوار&quot;, &quot;ال اي نوار&quot;, &quot;لا نوار&quot;], &quot;u&quot;: &quot;lanoire.html&quot;, &quot;t&quot;: &quot;L.A. Noire&quot;}, {&quot;n&quot;: [&quot;Red Dead Redemption 2&quot;, &quot;ريد ديد ريدمبشن 2&quot;, &quot;ريد ديد 2&quot;, &quot;RDR2&quot;, &quot;ريد ديد ريدمبشن 2&quot;, &quot;Red Dead 2&quot;, &quot;ريد ديد ريديمبشن 2&quot;], &quot;u&quot;: &quot;rdr2.html&quot;, &quot;t&quot;: &quot;Red Dead Redemption 2&quot;}, {&quot;n&quot;: [&quot;Ready or Not&quot;, &quot;ريدي أور نوت&quot;], &quot;u&quot;: &quot;readyornot.html&quot;, &quot;t&quot;: &quot;Ready or Not&quot;}, {&quot;n&quot;: [&quot;Anno 1800&quot;, &quot;آنو 1800&quot;, &quot;أنو 1800&quot;], &quot;u&quot;: &quot;anno1800.html&quot;, &quot;t&quot;: &quot;Anno 1800&quot;}, {&quot;n&quot;: [&quot;Manor Lords&quot;, &quot;مانور لوردز&quot;], &quot;u&quot;: &quot;manorlords.html&quot;, &quot;t&quot;: &quot;Manor Lords&quot;}, {&quot;n&quot;: [&quot;Mount &amp; Blade II: Bannerlord&quot;, &quot;ماونت آند بليد 2: بانرلورد&quot;, &quot;بانرلورد&quot;, &quot;ماونت آند بليد 2&quot;, &quot;Mount and Blade 2&quot;, &quot;Bannerlord&quot;, &quot;Mount &amp; Blade 2&quot;], &quot;u&quot;: &quot;bannerlord.html&quot;, &quot;t&quot;: &quot;Mount &amp; Blade II: Bannerlord&quot;}]">
     <h1 class="rep-title">اقترح لعبة نعرّبها</h1>
     <p class="rep-sub">اكتب اسم اللعبة التي تريدها بالعربية. نقرأ كل الاقتراحات، ونختار منها الألعاب الفردية التي يمكن تعريبها.</p>
     <noscript><p class="rep-msg">إرسال الاقتراح يحتاج تفعيل جافاسكربت في المتصفح. يمكنك الكتابة لنا في ديسكورد من الرابط أسفل النموذج.</p></noscript>
 
     <label class="fld"><span>اسم اللعبة <b class="req" aria-hidden="true">*</b></span>
       <input name="game" id="sGame" required minlength="2" maxlength="80" autocomplete="off" dir="auto" placeholder="اكتب اسم اللعبة">
+      <small class="fld-err" id="sGameErr" role="alert"></small>
+      <small class="fld-hint">اكتب الاسم كاملاً مع رقم الجزء، مثل: Red Dead Redemption 2</small>
     </label>
-    <p class="sug-have" id="sHave" hidden>هذه اللعبة معرّبة عندنا: <a id="sHaveA" href="index.html#games">افتح صفحتها</a></p>
+    <p class="sug-have" id="sHave" hidden><span id="sHaveT"></span><a id="sHaveA" href="index.html#games">افتح صفحتها</a></p>
 
-    <label class="fld"><span>اسمك في ديسكورد (اختياري)</span>
-      <input name="contact" maxlength="100" autocomplete="off" dir="auto" placeholder="اسمك كما يظهر في ديسكورد">
-      <small class="fld-hint">إذا عرّبنا اللعبة، نذكرك في ديسكورد لتعرف أنها صارت جاهزة.</small>
+    <fieldset class="fld sug-via">
+      <legend>أين نتواصل معك؟ <b class="req" aria-hidden="true">*</b></legend>
+      <div class="seg">
+        <label><input type="radio" name="platform" value="discord" checked><span>ديسكورد</span></label>
+        <label><input type="radio" name="platform" value="x"><span>إكس</span></label>
+      </div>
+    </fieldset>
+
+    <label class="fld"><span id="sConLbl">اسمك في ديسكورد <b class="req" aria-hidden="true">*</b></span>
+      <input name="contact" id="sCon" required maxlength="100" autocomplete="off" dir="auto" placeholder="اسمك كما يظهر في ديسكورد">
+      <small class="fld-err" id="sConErr" role="alert"></small>
+      <small class="fld-hint">إذا عرّبنا اللعبة، نخبرك لتعرف أنها صارت جاهزة. لا نستخدم حسابك لغير ذلك.</small>
     </label>
 
     <div class="hp" aria-hidden="true"><label>اترك هذه الخانة فارغة <input name="website" tabindex="-1" autocomplete="off"></label></div>
@@ -629,25 +654,43 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
 if(window.innerWidth<371)f.querySelector('.cf-turnstile').setAttribute('data-size','compact');
 var API='https://report.arabic-pc.workers.dev',E=f.elements,m=document.getElementById('sMsg'),s=document.getElementById('sSend'),done=document.getElementById('sDone'),hv=document.getElementById('sHave'),ha=document.getElementById('sHaveA');
 var have=[];try{have=JSON.parse(f.getAttribute('data-have')||'[]');}catch(e){}
-function norm(x){return x.toLowerCase().replace(/[ً-ْـ]/g,'').replace(/[أإآ]/g,'ا').replace(/[^a-z0-9ء-ي]+/g,'');}
-function check(){var q=norm(E.game.value),hit=null;if(q.length>=3)have.forEach(function(g){g.n.forEach(function(n){n=norm(n);if(n&&(n===q||(q.length>=4&&(n.indexOf(q)===0||q.indexOf(n)===0))))hit=g;});});hv.hidden=!hit;if(hit)ha.href=hit.u;}
+function norm(x){return x.toLowerCase().replace(/[٠-٩]/g,function(d){return d.charCodeAt(0)-1632;}).replace(/[۰-۹]/g,function(d){return d.charCodeAt(0)-1776;}).replace(/[ً-ْـ]/g,'').replace(/[أإآ]/g,'ا').replace(/^the/,'').replace(/[^a-z0-9ء-ي]+/g,'');}
+var blocked=false,ht=document.getElementById('sHaveT');
+function key(x){var n=norm(x);if(/[a-z]/.test(n)||!/[ء-ي]/.test(n))return n;return n.replace(/[اويىءئؤ]/g,'').replace(/[قغجك]/g,'ك').replace(/ز/g,'س').replace(/ط/g,'ت').replace(/ة/g,'ه');}
+function check(){var q=key(E.game.value),ex=null,part=null;if(q.length>=3)have.forEach(function(g){g.n.forEach(function(n){n=key(n);if(!n)return;if(n===q)ex=g;else if(q.length>=4&&(n.indexOf(q)===0||q.indexOf(n)===0))part=part||g;});});
+var hit=ex||part;blocked=!!ex;hv.hidden=!hit;hv.className='sug-have'+(ex?'':' soft');if(hit){ha.href=hit.u;ht.textContent=ex?'هذه اللعبة معرّبة عندنا، فلا حاجة لاقتراحها: ':'عندنا «'+hit.t+'» معرّبة. إذا كنت تقصد جزءاً آخر من السلسلة فأكمل الإرسال، وإلا: ';}
+}
 E.game.addEventListener('input',check);
+var con=E.contact,cl=document.getElementById('sConLbl'),ge=document.getElementById('sGameErr'),ce=document.getElementById('sConErr'),pf=function(){return f.querySelector('input[name=platform]:checked').value;};
+function bad(i,e,x){e.textContent=x;if(x)i.setAttribute('aria-invalid','true');else i.removeAttribute('aria-invalid');}
+function xname(v){v=v.trim();var u=v.match(/(?:x|twitter)\.com\/@?([A-Za-z0-9_]+)/i);if(u)v=u[1];return v.replace(/^@+/,'');}
+function setPf(){var x=pf()==='x';cl.firstChild.textContent=x?'اسمك في إكس ':'اسمك في ديسكورد ';con.placeholder=x?'@اسم_حسابك':'اسمك كما يظهر في ديسكورد';con.dir=x?'ltr':'auto';bad(con,ce,'');}
+Array.prototype.forEach.call(E.platform,function(r){r.addEventListener('change',setPf);});
+E.game.addEventListener('input',function(){bad(E.game,ge,'');});con.addEventListener('input',function(){bad(con,ce,'');});
 function say(x){m.textContent=x;}
 window.repTsErr=function(c){say('تعذّر التحقق من Cloudflare (رمز '+c+'). جرّب نافذة خفية أو أوقف مانع الإعلانات ثم حدّث الصفحة، أو اكتب لنا في ديسكورد.');};
 function fail(x){say(x);s.disabled=false;s.textContent='إرسال الاقتراح';try{if(window.turnstile)turnstile.reset();}catch(e){}}
 var KEY='sug-sent';function sent(){try{var a=JSON.parse(localStorage.getItem(KEY)||'[]'),h=Date.now()-36e5;return a.filter(function(x){return x>h;});}catch(e){return [];}}
 var ERR={rate:'أرسلت اقتراحات كثيرة في وقت قصير. انتظر دقيقة ثم حاول مرة أخرى.',captcha:'لم يكتمل التحقق من أنك لست برنامجاً آلياً. حدّث الصفحة وأعد المحاولة، أو جرّب نافذة خفية.',game:'اكتب اسم اللعبة (حرفان على الأقل).'};
-f.addEventListener('submit',function(e){e.preventDefault();say('');
-var g=E.game.value.trim();if(Array.from(g).length<2){say(ERR.game);E.game.focus();return;}
+function go(e){e.preventDefault();say('');
+var g=E.game.value.trim(),p=pf(),c=con.value.trim(),ok=true,first=null;bad(E.game,ge,'');bad(con,ce,'');
+if(blocked){bad(E.game,ge,'هذه اللعبة معرّبة عندنا، فلا حاجة لاقتراحها. افتح صفحتها من الرابط تحت الخانة.');first=E.game;ok=false;}
+else if(Array.from(g).length<2){bad(E.game,ge,g?ERR.game:'اكتب اسم اللعبة.');first=E.game;ok=false;}
+if(p==='x')c=xname(c);
+if(!c){bad(con,ce,p==='x'?'اكتب اسم حسابك في إكس.':'اكتب اسمك في ديسكورد.');ok=false;first=first||con;}
+else if(p==='x'&&!/^[A-Za-z0-9_]{1,15}$/.test(c)){bad(con,ce,'اسم الحساب في إكس حروف إنجليزية وأرقام و_ فقط، حتى 15 حرفاً.');ok=false;first=first||con;}
+else if(Array.from(c).length<2){bad(con,ce,'الاسم قصير جداً.');ok=false;first=first||con;}
+if(!ok){first.focus();return;}
 if(sent().length>=5){say('أرسلت خمسة اقتراحات خلال الساعة الأخيرة. حاول لاحقاً، أو اكتب لنا في ديسكورد.');return;}
 var tk=(E['cf-turnstile-response']&&E['cf-turnstile-response'].value)||'';
 if(!tk){say('انتظر حتى يكتمل التحقق فوق زر الإرسال، ثم اضغط «إرسال الاقتراح».');return;}
 s.disabled=true;s.textContent='جارٍ الإرسال…';
-fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:'suggest',game:g,contact:E.contact.value.trim(),website:E.website.value,token:tk})}).then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok&&j.ok,err:j.error};});}).then(function(r){
+fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:'suggest',game:g,platform:p,contact:c,website:E.website.value,token:tk})}).then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok&&j.ok,err:j.error};});}).then(function(r){
 if(r.ok){var a=sent();a.push(Date.now());try{localStorage.setItem(KEY,JSON.stringify(a));}catch(x){}f.hidden=true;done.hidden=false;done.focus();}
+else if(r.err==='contact'){fail('');bad(con,ce,'تحقق من اسم حسابك وأعد المحاولة.');con.focus();}
 else fail(ERR[r.err]||'تعذّر إرسال الاقتراح. حاول مرة أخرى بعد قليل.');
 }).catch(function(){fail('تعذّر الاتصال. تأكد من الإنترنت ثم حاول مرة أخرى.');});
-});})();</script>
+}f.addEventListener('submit',go);s.addEventListener('click',go);})();</script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script data-goatcounter="https://arabic-pc.goatcounter.com/count" async src="https://gc.zgo.at/count.v5.js" integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ" crossorigin="anonymous"></script>
 </body>
