@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-C7Hh7U+K+8Z5M+peHZ8Pt0O8H60dGBRS/FzX7lj1OOc=' 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-0NgrnOgkzZ77znPo2b4Meokp/LdTKjtW62F+k99FBgs=' 'sha256-D0SnryFHbFcE3lDCmxs45RldMhnp5iyebAxpOahPNMg=' https://gc.zgo.at/count.v5.js; style-src 'sha256-iUWDMslmsT+dugOuHstNgVCpeRCc1aXOgpaShNSnAAw=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src 'self' https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-C7Hh7U+K+8Z5M+peHZ8Pt0O8H60dGBRS/FzX7lj1OOc=' 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-0NgrnOgkzZ77znPo2b4Meokp/LdTKjtW62F+k99FBgs=' 'sha256-D0SnryFHbFcE3lDCmxs45RldMhnp5iyebAxpOahPNMg=' https://gc.zgo.at/count.v5.js; style-src 'sha256-b3R20vtq9fOExwXM1Np3QJxhOjOJewrKeUlObWQbu9M=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com; frame-src 'self' https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="تعريب ألعاب الكمبيوتر بالعربية الفصحى، يُركَّب ببرنامج صغير بضغطة واحدة ويُزال بضغطة واحدة.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -561,12 +561,6 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
   .rep-card { padding: 26px 18px 22px; }
 }
 
-.btn.off { opacity: .45; filter: grayscale(1); cursor: not-allowed; pointer-events: none; }
-.dl-paused { margin: 0; text-align: center; font-weight: 600; color: var(--danger); }
-.dl-paused-ok { text-align: center; }
-.chip.paused { color: var(--pause); }
-.chip.paused::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--pause); }
-.dl-jump-box, .to-get, .dl-bar { display: none !important; }
 @media (prefers-reduced-motion: no-preference) { .game[href="operator.html"] img { view-transition-name: cover-operator; } }
 @media (prefers-reduced-motion: no-preference) { .game[href="watchdogs.html"] img { view-transition-name: cover-watchdogs; } }
 @media (prefers-reduced-motion: no-preference) { .game[href="lanoire.html"] img { view-transition-name: cover-lanoire; } }
@@ -640,7 +634,7 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
         <div class="game-body">
           <h3 class="game-name">The Operator</h3>
           <p>لعبة تحقيق تعمل فيها مشغّلاً في جهاز تحقيقات فيدرالي عام 1992، تبحث في قواعد البيانات وتساعد العملاء في الميدان.</p>
-          <div class="chips"><span class="chip paused">جارٍ التحديث</span><span class="chip pc">PC</span><span class="chip">أكثر من 3,200 نص</span><span class="chip">0.5 ميغابايت</span></div>
+          <div class="chips"><span class="chip on">متاح</span><span class="chip pc">PC</span><span class="chip">أكثر من 3,200 نص</span><span class="chip">0.5 ميغابايت</span></div>
           <span class="game-go">صفحة التعريب ←</span>
         </div>
       </a>
