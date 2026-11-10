@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-XKA+Ks+a/oH4eBEpq15amMRDtnAtduEO/4KdRxrPADY=' 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-HL5o4WRxJy2LJ+yI6lyWKtsYBRQcVguU/ZzOsRV5YWg=' https://gc.zgo.at/count.v5.js https://challenges.cloudflare.com; style-src 'sha256-ChXbRkG36to9YK7T6wjTGfaq3mW8mnNIRDkCDrnxDhk=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com https://report.arabic-pc.workers.dev; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-XKA+Ks+a/oH4eBEpq15amMRDtnAtduEO/4KdRxrPADY=' 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-HL5o4WRxJy2LJ+yI6lyWKtsYBRQcVguU/ZzOsRV5YWg=' https://gc.zgo.at/count.v5.js https://challenges.cloudflare.com; style-src 'sha256-8evr1jTWX5g0eedkQV8NLFTi53x/XeEg/7dAhqK2gog=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com https://report.arabic-pc.workers.dev; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="أبلغنا عن مشكلة في أحد تعريبات ألعاب بالعربي.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -492,6 +492,18 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
 .yt-play::after { content:""; position:absolute; inset:0; margin:auto; width:0; height:0; border-style:solid; border-width:12px 0 12px 20px; border-color:transparent transparent transparent #fff; transform:translateX(3px); }
 .yt:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
 .yt-cap { margin-block-start:10px; color:var(--muted); font-size:14px; }
+.yt-mini { display:flex; align-items:center; gap:14px; max-width:760px; margin-block-start:12px; padding:8px; border:1px solid var(--line); border-radius:12px; background:var(--surface); color:var(--fg); text-decoration:none; transition:border-color .2s ease; }
+.yt-mini:hover { border-color:var(--gold); }
+.yt-mini:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+.yt-mini-img { position:relative; flex:none; width:150px; aspect-ratio:16/9; border-radius:8px; overflow:hidden; background:#000; }
+.yt-mini-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.yt-mini .yt-play { left:50%; width:38px; height:27px; border-radius:8px; }
+.yt-mini .yt-play::after { border-width:6px 0 6px 11px; transform:translateX(2px); }
+.yt-mini-txt { display:flex; flex-direction:column; gap:3px; min-width:0; }
+.yt-mini-txt i { font-style:normal; font-size:12px; font-weight:700; color:var(--gold-ink); background:var(--gold); border-radius:999px; padding:1px 10px; align-self:flex-start; }
+.yt-mini[data-show="b"] .yt-mini-txt i { display:none; }
+.yt-mini-txt b { font-size:16px; }
+.yt-mini-txt small { color:var(--muted); font-size:13px; }
 
 @media (max-width:600px){ .yt-play { width:56px; height:40px; border-radius:11px; } .yt-play::after { border-width:9px 0 9px 15px; } }
 #how .yt-wrap { margin: 0; }
