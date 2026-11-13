@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-b1EAO2UB4PBfRUNCLnmjU2zpViiodFGoZMo4QqBi7Ng=' https://gc.zgo.at/count.v5.js https://challenges.cloudflare.com; style-src 'sha256-jYjSdEg6o9pdNauGfxiuoH6PsdfxxQsK54fUi0ZNkDM=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com https://report.arabic-pc.workers.dev; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Id8Sa9lHvQpv70yLuLrgS8saQPOXiOdCwPLp7Yqlmew=' 'sha256-N9y4CfOFJ/8IzbZDMOFB1DgFnf7te0LwDgDdqq+qDJ4=' https://gc.zgo.at/count.v5.js https://challenges.cloudflare.com; style-src 'sha256-ezOO1EkDIaFHngxPusAky+qIiCfMd+2kWeicY2cnXTc=' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://arabic-pc.goatcounter.com; connect-src https://arabic-pc.goatcounter.com https://report.arabic-pc.workers.dev; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="اقترح لعبة كمبيوتر تريد تعريبها بالعربية.">
 <link rel="icon" type="image/png" href="img/icon.png">
@@ -573,6 +573,12 @@ html:has(.rep-dlg[open]) { overflow: hidden; }
   .rep-card { padding: 26px 18px 22px; }
 }
 
+.sug-alt { text-align: center; }
+.sug-or { text-align: center; color: var(--muted); font-size: 14.5px; margin: -6px 0 -10px; }
+.sug-dc {margin: -4px 0 0; font-size: 14px; line-height: 1.75; }
+.sug-dc p { margin: 0; }
+.sug-dc .sug-why { margin-top: 8px; }
+.sug-why b { color: var(--gold); font-weight: 700; }
 .sug-have { margin: -6px 0 14px; color: var(--ok); font-size: 14.5px; font-weight: 600; }
 .sug-have a { color: inherit; }
 .rep-send:disabled { opacity: .45; cursor: not-allowed; }
@@ -629,8 +635,13 @@ fieldset.fld { border: 0; padding: 0; margin: 0; }
       </div>
     </fieldset>
 
-    <label class="fld"><span id="sConLbl">اسمك في ديسكورد <b class="req" aria-hidden="true">*</b></span>
-      <input name="contact" id="sCon" required maxlength="100" autocomplete="off" dir="auto" placeholder="اسمك كما يظهر في ديسكورد">
+    <div class="fld-hint sug-dc" id="sDcHint">
+      <p>عند الضغط على زر «أرسل» تفتح صفحة ديسكورد الرسمية، ويصلنا اقتراحك بحسابك لنخبرك عند تعريب اللعبة.</p>
+      <p class="sug-why"><b>لماذا ديسكورد؟</b><br>لكي نعرف اسم حسابك فقط، ونخبرك عند تعريب اللعبة.</p>
+    </div>
+
+    <label class="fld" id="sConFld" hidden><span id="sConLbl">اسمك في إكس <b class="req" aria-hidden="true">*</b></span>
+      <input name="contact" id="sCon" maxlength="100" autocomplete="off" dir="ltr" placeholder="@اسم_حسابك">
       <small class="fld-err" id="sConErr" role="alert"></small>
       <small class="fld-hint">إذا عرّبنا اللعبة، نخبرك لتعرف أنها صارت جاهزة. لا نستخدم حسابك لغير ذلك.</small>
     </label>
@@ -640,15 +651,17 @@ fieldset.fld { border: 0; padding: 0; margin: 0; }
     <div class="cf-turnstile" data-sitekey="0x4AAAAAAFnURK6oBjLYLm6A" data-action="suggest" data-error-callback="repTsErr" data-language="ar" data-theme="auto"></div>
 
     <p class="rep-msg" id="sMsg" role="alert"></p>
-    <button class="btn gold rep-send" type="submit" id="sSend">إرسال الاقتراح</button>
+    <button class="btn gold rep-send" type="submit" id="sSend">أرسل بحساب ديسكورد</button>
 
-    <p class="rep-alt">تفضّل النقاش مباشرة؟ <a href="https://discord.gg/qZZn2CJPyR" target="_blank" rel="noopener">اكتب لنا في ديسكورد</a></p>
+    <p class="sug-or">أو</p>
+    <p class="rep-alt sug-alt"><a href="https://discord.gg/TV8BtWzct2" target="_blank" rel="noopener">أرسل لنا في روم «اقترح لعبة نعرّبها» في ديسكورد ←</a></p>
   </form>
 
   <div class="rep-card rep-done" id="sDone" tabindex="-1" hidden>
     <span class="rep-ok" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M5.5 12.5l4 4 9-9.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    <h2>وصلنا اقتراحك، شكراً لك</h2>
-    <p>سنراجعه مع باقي الاقتراحات.</p>
+    <h2 id="sDoneH">وصلنا اقتراحك، شكراً لك</h2>
+    <p id="sDoneP">سنراجعه مع باقي الاقتراحات.</p>
+    <p id="sJoin" hidden>إذا لم تكن في سيرفرنا، <a href="https://discord.gg/qZZn2CJPyR" target="_blank" rel="noopener">انضم إلى ديسكورد</a> حتى نستطيع إخبارك عند تعريب اللعبة.</p>
     <a class="btn rep-back" href="links.html">العودة إلى الروابط</a>
   </div>
 </main>
@@ -676,31 +689,43 @@ E.game.addEventListener('input',check);
 var con=E.contact,cl=document.getElementById('sConLbl'),ge=document.getElementById('sGameErr'),ce=document.getElementById('sConErr'),pf=function(){return f.querySelector('input[name=platform]:checked').value;};
 function bad(i,e,x){e.textContent=x;if(x)i.setAttribute('aria-invalid','true');else i.removeAttribute('aria-invalid');}
 function xname(v){v=v.trim();var u=v.match(/(?:x|twitter)\.com\/@?([A-Za-z0-9_]+)/i);if(u)v=u[1];return v.replace(/^@+/,'');}
-function setPf(){var x=pf()==='x';cl.firstChild.textContent=x?'اسمك في إكس ':'اسمك في ديسكورد ';con.placeholder=x?'@اسم_حسابك':'اسمك كما يظهر في ديسكورد';con.dir=x?'ltr':'auto';bad(con,ce,'');}
-Array.prototype.forEach.call(E.platform,function(r){r.addEventListener('change',setPf);});
+var cf=document.getElementById('sConFld'),dh=document.getElementById('sDcHint');
+function lbl(){return pf()==='x'?'إرسال الاقتراح':'أرسل بحساب ديسكورد';}
+function setPf(){var x=pf()==='x';cf.hidden=!x;dh.hidden=x;s.textContent=lbl();bad(con,ce,'');}
+Array.prototype.forEach.call(E.platform,function(r){r.addEventListener('change',setPf);});setPf();
 E.game.addEventListener('input',function(){bad(E.game,ge,'');});con.addEventListener('input',function(){bad(con,ce,'');});
 function say(x){m.textContent=x;}
 window.repTsErr=function(c){say('تعذّر التحقق من Cloudflare (رمز '+c+'). جرّب نافذة خفية أو أوقف مانع الإعلانات ثم حدّث الصفحة، أو اكتب لنا في ديسكورد.');};
-function fail(x){say(x);s.disabled=false;s.textContent='إرسال الاقتراح';try{if(window.turnstile)turnstile.reset();}catch(e){}}
+function fail(x){say(x);s.disabled=false;s.textContent=lbl();try{if(window.turnstile)turnstile.reset();}catch(e){}}
 var KEY='sug-sent';function sent(){try{var a=JSON.parse(localStorage.getItem(KEY)||'[]'),h=Date.now()-36e5;return a.filter(function(x){return x>h;});}catch(e){return [];}}
 var GK='sug-games';function games(){try{var a=JSON.parse(localStorage.getItem(GK)||'[]'),d=Date.now()-864e5;return a.filter(function(x){return x&&x.t>d;});}catch(e){return [];}}
-var ERR={rate:'أرسلت اقتراحات كثيرة في وقت قصير. انتظر دقيقة ثم حاول مرة أخرى.',captcha:'لم يكتمل التحقق من أنك لست برنامجاً آلياً. حدّث الصفحة وأعد المحاولة، أو جرّب نافذة خفية.',game:'اكتب اسم اللعبة (حرفان على الأقل).'};
+var ERR={rate:'أرسلت اقتراحات كثيرة في وقت قصير. انتظر دقيقة ثم حاول مرة أخرى.',captcha:'لم يكتمل التحقق من أنك لست برنامجاً آلياً. حدّث الصفحة وأعد المحاولة، أو جرّب نافذة خفية.',game:'اكتب اسم اللعبة (حرفان على الأقل).',oauth:'حدّث الصفحة وأعد المحاولة.',config:'إرسال الاقتراحات متوقف مؤقتاً. اكتب لنا في ديسكورد.'};
+function keep(k){var a=sent(),b=games();a.push(Date.now());b.push({k:k,t:Date.now()});try{localStorage.setItem(KEY,JSON.stringify(a));localStorage.setItem(GK,JSON.stringify(b));}catch(x){}}
+function show(dup,out){if(dup){document.getElementById('sDoneH').textContent='وصلنا اقتراحك لهذه اللعبة من قبل';document.getElementById('sDoneP').textContent='نحسب كل شخص مرة واحدة لكل لعبة، شكراً لك.';}document.getElementById('sJoin').hidden=!out;f.hidden=true;done.hidden=false;done.focus();}
+// الرجوع من صفحة ديسكورد: الوسيط يرجّع اللاعب هنا ومعه النتيجة بعد #
+var h=location.hash.slice(1);if(/^sug-[a-z-]+$/.test(h)){try{history.replaceState(null,'',location.pathname+location.search);}catch(x){}
+var pd=null;try{pd=JSON.parse(sessionStorage.getItem('sug-pending')||'null');sessionStorage.removeItem('sug-pending');}catch(x){}
+if(h==='sug-ok'||h==='sug-ok-out'){if(pd&&pd.k)keep(pd.k);show(false,true);}
+else if(h==='sug-dup')show(true,false);
+else{if(pd&&typeof pd.g==='string'){E.game.value=pd.g;check();}say(h==='sug-denied'?'لم تكتمل الموافقة في ديسكورد، فلم نرسل اقتراحك. اضغط الزر مرة أخرى إذا أردت إرساله.':h==='sug-err-state'?'انتهت مهلة الطلب. اضغط الزر مرة أخرى.':h==='sug-err-config'?ERR.config:'تعذّر إرسال الاقتراح. حاول مرة أخرى بعد قليل.');}}
 function go(e){e.preventDefault();say('');
 var g=E.game.value.trim(),p=pf(),c=con.value.trim(),ok=true,first=null;bad(E.game,ge,'');bad(con,ce,'');
 if(blocked){bad(E.game,ge,'هذه اللعبة معرّبة عندنا، فلا حاجة لاقتراحها. افتح صفحتها من الرابط تحت الخانة.');first=E.game;ok=false;}
 else if(Array.from(g).length<2){bad(E.game,ge,g?ERR.game:'اكتب اسم اللعبة.');first=E.game;ok=false;}
-if(p==='x')c=xname(c);
-if(!c){bad(con,ce,p==='x'?'اكتب اسم حسابك في إكس.':'اكتب اسمك في ديسكورد.');ok=false;first=first||con;}
-else if(p==='x'&&!/^[A-Za-z0-9_]{1,15}$/.test(c)){bad(con,ce,'اسم الحساب في إكس حروف إنجليزية وأرقام و_ فقط، حتى 15 حرفاً.');ok=false;first=first||con;}
-else if(Array.from(c).length<2){bad(con,ce,'الاسم قصير جداً.');ok=false;first=first||con;}
+if(p==='x'){c=xname(c);
+if(!c){bad(con,ce,'اكتب اسم حسابك في إكس.');ok=false;first=first||con;}
+else if(!/^[A-Za-z0-9_]{1,15}$/.test(c)){bad(con,ce,'اسم الحساب في إكس حروف إنجليزية وأرقام و_ فقط، حتى 15 حرفاً.');ok=false;first=first||con;}
+else if(Array.from(c).length<2){bad(con,ce,'الاسم قصير جداً.');ok=false;first=first||con;}}
 if(!ok){first.focus();return;}
 var gk=key(g);if(games().filter(function(x){return x.k===gk;}).length>=2){bad(E.game,ge,'وصلنا اقتراحك لهذه اللعبة، شكراً لك. لا حاجة لإرساله مرة أخرى.');E.game.focus();return;}
 if(sent().length>=5){say('أرسلت خمسة اقتراحات خلال الساعة الأخيرة. حاول لاحقاً، أو اكتب لنا في ديسكورد.');return;}
 var tk=(E['cf-turnstile-response']&&E['cf-turnstile-response'].value)||'';
-if(!tk){say('انتظر حتى يكتمل التحقق فوق زر الإرسال، ثم اضغط «إرسال الاقتراح».');return;}
-s.disabled=true;s.textContent='جارٍ الإرسال…';
-fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:'suggest',game:g,platform:p,contact:c,website:E.website.value,token:tk})}).then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok&&j.ok,err:j.error};});}).then(function(r){
-if(r.ok){var a=sent(),b=games();a.push(Date.now());b.push({k:gk,t:Date.now()});try{localStorage.setItem(KEY,JSON.stringify(a));localStorage.setItem(GK,JSON.stringify(b));}catch(x){}f.hidden=true;done.hidden=false;done.focus();}
+if(!tk){say('انتظر حتى يكتمل التحقق فوق الزر، ثم اضغط «'+lbl()+'».');return;}
+s.disabled=true;s.textContent=p==='x'?'جارٍ الإرسال…':'جارٍ فتح ديسكورد…';
+var body=p==='x'?{kind:'suggest',game:g,platform:'x',contact:c,website:E.website.value,token:tk}:{kind:'suggest_start',game:g,website:E.website.value,token:tk};
+fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok&&j.ok,err:j.error,dup:j.dup===true,url:typeof j.url==='string'?j.url:''};});}).then(function(r){
+if(r.ok&&p!=='x'){if(r.url.indexOf('https://discord.com/oauth2/authorize?')!==0){keep(gk);show(false,false);return;}try{sessionStorage.setItem('sug-pending',JSON.stringify({g:g,k:gk}));}catch(x){}location.assign(r.url);}
+else if(r.ok){if(!r.dup)keep(gk);show(r.dup,false);}
 else if(r.err==='contact'){fail('');bad(con,ce,'تحقق من اسم حسابك وأعد المحاولة.');con.focus();}
 else fail(ERR[r.err]||'تعذّر إرسال الاقتراح. حاول مرة أخرى بعد قليل.');
 }).catch(function(){fail('تعذّر الاتصال. تأكد من الإنترنت ثم حاول مرة أخرى.');});
